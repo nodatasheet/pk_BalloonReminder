@@ -1,13 +1,12 @@
 import clr
-import traceback
-
 from pyrevit import script
 
 logger = script.get_logger()
 
 try:
-    # it is not actually required in pyRevit
+    # Somehow it is not actually required in pyRevit
     # and even rised an error once
+    # but i kept it just in case
     clr.AddReference('AdWindows')
 except Exception as errmsg:
     logger.exception(errmsg)
