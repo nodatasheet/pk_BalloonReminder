@@ -5,7 +5,7 @@ from pyrevit import script
 from System.Windows.Input import Key
 
 
-class BallonReminderConfigWindow(forms.WPFWindow):
+class BalloonReminderConfigWindow(forms.WPFWindow):
     def __init__(self, xaml_file_name):
         forms.WPFWindow.__init__(self, xaml_file_name)
 
@@ -74,4 +74,4 @@ class BallonReminderConfigWindow(forms.WPFWindow):
         self.Close()
 
 
-BallonReminderConfigWindow('BalloonReminderConfig.xaml').ShowDialog()
+BalloonReminderConfigWindow('BalloonReminderConfig.xaml').ShowDialog()

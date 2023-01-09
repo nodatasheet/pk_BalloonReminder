@@ -124,7 +124,7 @@ def subscribe_to_save_click(_uiapp, doc, save_balloontip):
 
 
 def save_document(sender, args, _uiapp, doc):
-    # type: (BalloonTip, ResultClickEventArgs, UI.UIApplication, DB.Document, ) -> None
+    # type: (BalloonTip, ResultClickEventArgs, UI.UIApplication, DB.Document) -> None
     try:
         if doc.IsValidObject and _uiapp.Application.Documents.Contains(doc):
             doc.Save()
@@ -158,7 +158,6 @@ def sync_document(sender, args, _uiapp, doc, script_cfg):
     # type: (BalloonTip, ResultClickEventArgs, UI.UIApplication, DB.Document, PyRevitConfigSectionParser) -> None
     try:
         if doc.IsValidObject and _uiapp.Application.Documents.Contains(doc):
-            doc.Save()
             transact_opts = DB.TransactWithCentralOptions()
             sync_opts = get_sync_options(script_cfg)
             doc.SynchronizeWithCentral(transact_opts, sync_opts)
