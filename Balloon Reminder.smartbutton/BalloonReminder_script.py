@@ -159,6 +159,9 @@ def sync_document(sender, args, _uiapp, doc, script_cfg):
         if doc.IsValidObject and _uiapp.Application.Documents.Contains(doc):
             transact_opts = DB.TransactWithCentralOptions()
             sync_opts = get_sync_options(script_cfg)
+            revit_version = int(_uiapp.Application.VersionNumber)
+            if revit_version >= 2019 and doc.IsModelInCloud:
+                sync_opts.SaveLocalBefore = sync_opts.SaveLocalAfter = True
             doc.SynchronizeWithCentral(transact_opts, sync_opts)
         else:
             forms.alert('Could not synchronize the Document\n'
