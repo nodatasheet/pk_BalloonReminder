@@ -1,5 +1,4 @@
 """Shows Balloon Tip instead of modal Save/Sync reminding TaskDialog.
-author: Konstantin (https://github.com/nodatasheet)
 """
 
 import traceback
